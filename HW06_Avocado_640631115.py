@@ -46,11 +46,16 @@ merge = pd.DataFrame({'Total Volume':sum_each_region['Total Volume'],  # combine
 merge['Total amount of income'] = merge['AveragePrice']*merge['Total Volume'] # add Total amount of income columns into dataframe 
 print(merge)
 
-## 5.1 Let AVOCADO  Average Weight : 4046 => 4 ounces, 4225 => 9 ounces, 4770 => 12 ounces Find the number of sold avocadoes by region ?
-data = pd.DataFrame({'#of_sold_4046':lot_4046['4046']*4,
-                     '#of_sold_4225':lot_4225['4225']*9,
-                     '#of_sold_4770':lot_4770['4770']*12})
+## Let AVOCADO  Average Weight : 4046 => 4 ounces, 4225 => 9 ounces, 4770 => 12 ounces 
+## 5.1 Find the number of sold avocadoes by region ?
+data = pd.DataFrame({'#of_sold_4046':lot_4046['4046']/4,
+                     '#of_sold_4225':lot_4225['4225']/9,
+                     '#of_sold_4770':lot_4770['4770']/12})
 print(data)
+
+## 5.2 Which region sold the largest number of avocados ?
+data['largest number of avocados'] = data['#of_sold_4046']+data['#of_sold_4225']+data['#of_sold_4770']
+print('The region which sold the largest number of avocado is : ',data['largest number of avocados'].idxmax())
 
 ## 6. Normally, the customers buy the avocados by unit or in a bags ?
 Unit=df['Total Volume'].sum()
