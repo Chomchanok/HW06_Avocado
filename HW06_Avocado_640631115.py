@@ -36,6 +36,6 @@ combinemin = min_lot_4046.append([min_lot_4225,min_lot_4770]) # To combine min v
 print("The biggest lot of sold avocado came from : ",combinemin.idxmax())
 
 ## 3. Which region sold the highest price of avocado in average ?
-region_avg_price = df.groupby(['region'],sort=False)[['Total Volume']].mean() # group by each region to calculate average price of avocado 
-highest_avg_price = region_avg_price['Total Volume'].idxmax() # find max indext of highest price 
+region_avg_price = df.groupby(['region'],sort=False)[['AveragePrice']].mean() # group by each region to calculate average price of avocado 
+highest_avg_price = region_avg_price['AveragePrice'].idxmax() # find max indext of highest price 
 print("The region which sold the highest price of avocado in average is : ",highest_avg_price )
