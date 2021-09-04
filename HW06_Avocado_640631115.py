@@ -39,3 +39,9 @@ print("The biggest lot of sold avocado came from : ",combinemin.idxmax())
 region_avg_price = df.groupby(['region'],sort=False)[['AveragePrice']].mean() # group by each region to calculate average price of avocado 
 highest_avg_price = region_avg_price['AveragePrice'].idxmax() # find max indext of highest price 
 print("The region which sold the highest price of avocado in average is : ",highest_avg_price )
+
+## 4. Find the total amount of income (Avg_Price*Total_Volume) of each region.
+merge = pd.DataFrame({'Total Volume':sum_each_region['Total Volume'],  # combine 2 series of total volume and average price by each region
+                      'AveragePrice':region_avg_price['AveragePrice']})
+merge['Total amount of income'] = merge['AveragePrice']*merge['Total Volume'] # add Total amount of income columns into dataframe 
+print(merge)
