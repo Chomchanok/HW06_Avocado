@@ -11,14 +11,14 @@ print(" The region which sold the largest amount of avocado is {} which is {}$".
 
 
 ## 1.2 In this region, where the biggest lot of sold avocado came from (4046, 4225, 4770) ?
-lot_4046 = df.groupby(['region'],sort=False)[['4046']].sum() 
-lot_4225 = df.groupby(['region'],sort=False)[['4225']].sum()
-lot_4770 = df.groupby(['region'],sort=False)[['4770']].sum() 
+lot_4046 = df.groupby(['region'],sort=False)[['4046']].sum() # group by region to calculate total amount of avocado in PLU 4046 
+lot_4225 = df.groupby(['region'],sort=False)[['4225']].sum() # group by region to calculate total amount of avocado in PLU 4225
+lot_4770 = df.groupby(['region'],sort=False)[['4770']].sum() # group by region to calculate total amount of avocado in PLU 4770
 
-max_lot_4046 = lot_4046.max()
-max_lot_4225 = lot_4225.max()
-max_lot_4770 = lot_4770.max()
+max_lot_4046 = lot_4046.max() # find max value of PLU 4046 
+max_lot_4225 = lot_4225.max() # find max value of PLU 4225
+max_lot_4770 = lot_4770.max() # find max value of PLU 4770
 
-combinemax = max_lot_4046.append([max_lot_4225,max_lot_4770])
-print("The biggest lot of sold avocado came from : ",combine.idxmax())
+combinemax = max_lot_4046.append([max_lot_4225,max_lot_4770]) # To combine max values from each PLUs
+print("The biggest lot of sold avocado came from : ",combinemax.idxmax()) 
 
