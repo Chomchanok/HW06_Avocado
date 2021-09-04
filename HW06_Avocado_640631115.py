@@ -45,3 +45,16 @@ merge = pd.DataFrame({'Total Volume':sum_each_region['Total Volume'],  # combine
                       'AveragePrice':region_avg_price['AveragePrice']})
 merge['Total amount of income'] = merge['AveragePrice']*merge['Total Volume'] # add Total amount of income columns into dataframe 
 print(merge)
+
+## 5.1 Let AVOCADO  Average Weight : 4046 => 4 ounces, 4225 => 9 ounces, 4770 => 12 ounces Find the number of sold avocadoes by region ?
+data = pd.DataFrame({'#of_sold_4046':lot_4046['4046']*4,
+                     '#of_sold_4225':lot_4225['4225']*9,
+                     '#of_sold_4770':lot_4770['4770']*12})
+print(data)
+
+## 6. Normally, the customers buy the avocados by unit or in a bags ?
+Unit=df['Total Volume'].sum()
+Bag=df['Total Bags'].sum()
+compare = pd.Series({'By Unit': Unit,
+                       'By Bag':Bag})
+print("Normally, the customers buy the avocados : ",compare.idxmax())
